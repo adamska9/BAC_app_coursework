@@ -4,7 +4,7 @@
     <string name="start">start</string>
     <string name="about">about</string>
     <string name="what_is_this_app_about">What is this app about?</string>
-    <string name="textAbout">blah blah course work we are great thisapp is great we did it blah blha for oop it calculates bac uses some formula hmmm</string>
+    <string name="textAbout">This application was made as part of the course work by Zatokovenko Daria and Rogacheva Victoria and is for informational purposes only. The results from this blood alcohol calculator application are approximation only. Your actual blood alcohol concentration depends on a variety of additional factors, as genetic makeup, personal health, and recent food consumption. In case of doubt you should never drink and drive. The programmers do not assume any liability for the correctness of the results.</string>
     <string name="back">back</string>
     <string name="add">add</string>
     <string name="cancel">Cancel</string>
@@ -18,7 +18,7 @@
     <string name="set_to_imperial">Set to imperial</string>
     <string name="weight">Weight</string>
     <string name="kilograms">Kilograms</string>
-    <string name="bac_estimation">BAC estimation</string>
+    <string name="bac_estimation">BAC Estimation</string>
     <string name="set_to_metric">Set to Metric</string>
     <string name="pounds">Pounds</string>
     <string name="name">name</string>
@@ -36,4 +36,5 @@
     <string name="fill_the_fields">Please fill all the fields.</string>
     <string name="edit">edit</string>
     <string name="delete">delete</string>
+    <string name="hours_left_until_sober">Hours left until sober.</string>
 </resources>

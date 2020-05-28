@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Hours left until sober." />
+        android:text="@string/hours_left_until_sober" />
 
     <TextView
         android:id="@+id/BACest"
