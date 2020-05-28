@@ -37,4 +37,6 @@
     <string name="edit">edit</string>
     <string name="delete">delete</string>
     <string name="hours_left_until_sober">Hours left until sober.</string>
+    <string name="language">language</string>
+    <string name="Please_enter_weight">Please enter weight</string>
 </resources>

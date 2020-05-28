@@ -1,8 +1,11 @@
 package com.example.android.bactrack;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,7 +16,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Locale;
 
 public class Settings extends AppCompatActivity {
 
@@ -38,9 +44,12 @@ public class Settings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        loadLocale();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        Button language = findViewById(R.id.languageSettings);
+        Button about = findViewById(R.id.about);
         radioButton0 = findViewById(R.id.radioButton0);
         userWeightET = findViewById(R.id.userWeight);
         radioMale = findViewById(R.id.radioMale);
@@ -61,6 +70,23 @@ public class Settings extends AppCompatActivity {
             loadData();
         }
 
+        //set locale
+        language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showChangeLanguageDialog();
+            }
+        });
+
+        //go to about page
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int LAUNCH_SECOND_ACTIVITY = 1;
+                Intent intent = new Intent(Settings.this, AboutActivity.class);
+                startActivityForResult(intent, LAUNCH_SECOND_ACTIVITY);
+            }
+        });
 
         //set imperial/metric
         changeWeight.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +103,7 @@ public class Settings extends AppCompatActivity {
 
                 strWeight = userWeightET.getText().toString();
                 if (TextUtils.isEmpty(strWeight)) {
-                    Toast.makeText(Settings.this, "Please enter weight", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Settings.this, R.string.Please_enter_weight, Toast.LENGTH_SHORT).show();
                 } else {
                     saveData();
 
@@ -145,5 +171,50 @@ public class Settings extends AppCompatActivity {
         gender.check(savedRadioIndex1);
         BodyType.check(savedRadioIndex2);
 
+    }
+
+    private void showChangeLanguageDialog() {
+        final String[] LISTITEMS = {"English", "Deutsch", "Русский", "Українська"};
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(Settings.this);
+        mBuilder.setTitle("Choose language");
+        mBuilder.setSingleChoiceItems(LISTITEMS, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (which == 0) {
+                    setLocale("en");
+                    recreate();
+                } else if (which == 1) {
+                    setLocale("de");
+                    recreate();
+                } else if (which == 2) {
+                    setLocale("ru");
+                    recreate();
+                } else if (which == 3) {
+                    setLocale("uk");
+                    recreate();
+                }
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog mDialog = mBuilder.create();
+        mDialog.show();
+    }
+
+    private void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        SharedPreferences.Editor editor = getSharedPreferences("Settings", MODE_PRIVATE).edit();
+        editor.putString("My_Lang", lang);
+        editor.apply();
+    }
+
+    public void loadLocale() {
+        SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
+        String language = prefs.getString("My_Lang", "");
+        setLocale(language);
     }
 }

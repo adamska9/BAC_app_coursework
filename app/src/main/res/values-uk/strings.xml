@@ -8,7 +8,7 @@
     <string name="back">назад</string>
     <string name="add">додати</string>
     <string name="cancel">Cancel</string>
-    <string name="settings">Налаштування</string>
+    <string name="settings">Показники</string>
     <string name="calculate">рахувати</string>
     <string name="click_calculate_to_calculate_bac">Нажміть на РАХУВАТИ для розрахунку BAC</string>
     <string name="g_ethanol_100ml_bodywater">g Етанола / 100mL води в організмі</string>
@@ -37,4 +37,6 @@
     <string name="edit">редагувати</string>
     <string name="delete">видалити</string>
     <string name="hours_left_until_sober">Годин до тверезості.</string>
+    <string name="language">Мова</string>
+    <string name="Please_enter_weight">Введіть вагу.</string>
 </resources>

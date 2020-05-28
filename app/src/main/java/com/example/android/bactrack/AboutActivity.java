@@ -1,5 +1,6 @@
 package com.example.android.bactrack;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,11 +27,9 @@ public class AboutActivity extends AppCompatActivity {
             // The code in this method will be executed when the phrases category is clicked on.
             @Override
             public void onClick(View view) {
-                // Create a new intent to open the {@link PhrasesActivity}
-                Intent intent = new Intent(AboutActivity.this, StartActivity.class);
-
-                // Start the new activity
-                startActivity(intent);
+                Intent intent = new Intent();
+                setResult(Activity.RESULT_CANCELED, intent);
+                finish();
             }
         });
 

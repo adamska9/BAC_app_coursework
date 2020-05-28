@@ -72,15 +72,36 @@
     </RadioGroup>
 
     <Button
+        android:id="@+id/about"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/about" />
+    <Button
         android:id="@+id/submit"
         android:layout_width="128dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="38dp"
+        android:layout_marginBottom="40dp"
         android:nestedScrollingEnabled="true"
         android:text="@string/save" />
+
+    <Button
+        android:id="@+id/languageSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/language" />
 
     <TextView
         android:id="@+id/weightType"

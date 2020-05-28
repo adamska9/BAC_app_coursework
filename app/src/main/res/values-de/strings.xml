@@ -7,7 +7,7 @@
     <string name="back">zurück</string>
     <string name="add">hinzufügen</string>
     <string name="cancel">Cancel</string>
-    <string name="settings">Einstellungen</string>
+    <string name="settings">Einstellen</string>
     <string name="calculate">rechnen</string>
     <string name="click_calculate_to_calculate_bac">Klicken auf RECHNEN, um den BAC zu berechnen</string>
     <string name="g_ethanol_100ml_bodywater">g Ethanol / 100mL bodyWater</string>
@@ -37,4 +37,6 @@
     <string name="about">über</string>
     <string name="save">Speichern</string>
     <string name="hours_left_until_sober">Stunden bis nüchtern.</string>
+    <string name="language">Sprache</string>
+    <string name="Please_enter_weight">Bitte fügen Sie den Gewicht.</string>
 </resources>

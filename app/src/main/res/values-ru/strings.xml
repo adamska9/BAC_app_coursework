@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ALCOCALC</string>
-    <string name="welcome">Добро пожаловать!</string>
+    <string name="welcome">Добро\nпожаловать!</string>
     <string name="start">начать</string>
     <string name="about">about</string>
     <string name="what_is_this_app_about">О чем это приложение?</string>
@@ -37,4 +37,6 @@
     <string name="back">назад</string>
     <string name="calculate">считать</string>
     <string name="hours_left_until_sober">"Часов до отрезвения. "</string>
+    <string name="language">Язык</string>
+    <string name="Please_enter_weight">Введите вес.</string>
 </resources>
