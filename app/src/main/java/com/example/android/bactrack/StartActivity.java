@@ -22,42 +22,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         loadLocale();
         setContentView(R.layout.activity_start);
-
-        Button start = findViewById(R.id.start);
-        Button language = findViewById(R.id.language);
-
-        language.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the phrases category is clicked on.
-            @Override
-            public void onClick(View view) {
-                // Create a new intent to open the {@link PhrasesActivity}
-                showChangeLanguageDialog();
-            }
-        });
-
-        start.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the phrases category is clicked on.
-            @Override
-            public void onClick(View view) {
-                // Create a new intent to open the {@link PhrasesActivity}
-                Intent intent = new Intent(StartActivity.this, Settings.class);
-
-                // Start the new activity
-                startActivity(intent);
-            }
-        });
-
-        Button about = findViewById(R.id.about);
-        about.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the phrases category is clicked on.
-            @Override
-            public void onClick(View view) {
-                int LAUNCH_SECOND_ACTIVITY = 1;
-                Intent intent = new Intent(StartActivity.this, AboutActivity.class);
-                startActivityForResult(intent, LAUNCH_SECOND_ACTIVITY);
-            }
-        });
-
+        setButtons();
     }
 
     private void showChangeLanguageDialog() {
@@ -103,5 +68,44 @@ public class StartActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
         String language = prefs.getString("My_Lang", "");
         setLocale(language);
+    }
+
+    //Buttons
+    public void setButtons() {
+        Button start = findViewById(R.id.start);
+        Button language = findViewById(R.id.language);
+
+        language.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the phrases category is clicked on.
+            @Override
+            public void onClick(View view) {
+                // Create a new intent to open the {@link PhrasesActivity}
+                showChangeLanguageDialog();
+            }
+        });
+
+        start.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the phrases category is clicked on.
+            @Override
+            public void onClick(View view) {
+                // Create a new intent to open the {@link PhrasesActivity}
+                Intent intent = new Intent(StartActivity.this, Settings.class);
+
+                // Start the new activity
+                startActivity(intent);
+            }
+        });
+
+        Button about = findViewById(R.id.about);
+        about.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the phrases category is clicked on.
+            @Override
+            public void onClick(View view) {
+                int LAUNCH_SECOND_ACTIVITY = 1;
+                Intent intent = new Intent(StartActivity.this, AboutActivity.class);
+                startActivityForResult(intent, LAUNCH_SECOND_ACTIVITY);
+            }
+        });
+
     }
 }

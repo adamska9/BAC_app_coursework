@@ -47,75 +47,7 @@ public class Settings extends AppCompatActivity {
         loadLocale();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
-        Button language = findViewById(R.id.languageSettings);
-        Button about = findViewById(R.id.about);
-        radioButton0 = findViewById(R.id.radioButton0);
-        userWeightET = findViewById(R.id.userWeight);
-        radioMale = findViewById(R.id.radioMale);
-        BodyType = findViewById(R.id.BodyType);
-        weightType = findViewById(R.id.weightType);
-        Button changeWeight = findViewById(R.id.changeWeight);
-        Button submit = findViewById(R.id.submit);
-        gender = findViewById(R.id.gender);
-        BodyType = findViewById(R.id.BodyType);
-
-        //initialize RadioGroups
-        gender.check(R.id.radioMale);
-        BodyType.check(R.id.radioButton0);
-
-        //load saved data if Settings is opened within MainAdd
-        Bundle settings = getIntent().getExtras();
-        if (settings != null) {
-            loadData();
-        }
-
-        //set locale
-        language.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showChangeLanguageDialog();
-            }
-        });
-
-        //go to about page
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int LAUNCH_SECOND_ACTIVITY = 1;
-                Intent intent = new Intent(Settings.this, AboutActivity.class);
-                startActivityForResult(intent, LAUNCH_SECOND_ACTIVITY);
-            }
-        });
-
-        //set imperial/metric
-        changeWeight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                imperialToMetric();
-            }
-        });
-
-        //submit settings to main activity
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                strWeight = userWeightET.getText().toString();
-                if (TextUtils.isEmpty(strWeight)) {
-                    Toast.makeText(Settings.this, R.string.Please_enter_weight, Toast.LENGTH_SHORT).show();
-                } else {
-                    saveData();
-
-                    userWeight = Double.parseDouble(strWeight);
-                    Intent intent = new Intent(Settings.this, MainAdd.class);
-                    intent.putExtra("distributionRatio", radioButtons());
-                    intent.putExtra("userWeight", userWeightKGPD());
-
-                    startActivity(intent);
-                }
-            }
-        });
+        setButtons();
     }
 
     public void imperialToMetric() {
@@ -216,5 +148,77 @@ public class Settings extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("Settings", Activity.MODE_PRIVATE);
         String language = prefs.getString("My_Lang", "");
         setLocale(language);
+    }
+
+    public void setButtons() {
+        Button language = findViewById(R.id.languageSettings);
+        Button about = findViewById(R.id.about);
+        radioButton0 = findViewById(R.id.radioButton0);
+        userWeightET = findViewById(R.id.userWeight);
+        radioMale = findViewById(R.id.radioMale);
+        BodyType = findViewById(R.id.BodyType);
+        weightType = findViewById(R.id.weightType);
+        Button changeWeight = findViewById(R.id.changeWeight);
+        Button submit = findViewById(R.id.submit);
+        gender = findViewById(R.id.gender);
+        BodyType = findViewById(R.id.BodyType);
+
+        //initialize RadioGroups
+        gender.check(R.id.radioMale);
+        BodyType.check(R.id.radioButton0);
+
+        //load saved data if Settings is opened within MainAdd
+        Bundle settings = getIntent().getExtras();
+        if (settings != null) {
+            loadData();
+        }
+
+        //set locale
+        language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showChangeLanguageDialog();
+            }
+        });
+
+        //go to about page
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int LAUNCH_SECOND_ACTIVITY = 1;
+                Intent intent = new Intent(Settings.this, AboutActivity.class);
+                startActivityForResult(intent, LAUNCH_SECOND_ACTIVITY);
+            }
+        });
+
+        //set imperial/metric
+        changeWeight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imperialToMetric();
+            }
+        });
+
+        //submit settings to main activity
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                strWeight = userWeightET.getText().toString();
+                if (TextUtils.isEmpty(strWeight)) {
+                    Toast.makeText(Settings.this, R.string.Please_enter_weight, Toast.LENGTH_SHORT).show();
+                } else {
+                    saveData();
+
+                    userWeight = Double.parseDouble(strWeight);
+                    Intent intent = new Intent(Settings.this, MainAdd.class);
+                    intent.putExtra("distributionRatio", radioButtons());
+                    intent.putExtra("userWeight", userWeightKGPD());
+
+                    startActivity(intent);
+                }
+            }
+        });
+
     }
 }
