@@ -134,7 +134,7 @@
         <RadioButton
             android:id="@+id/radioFemale"
             android:layout_width="match_parent"
-            android:layout_height="98dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="end|center"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"

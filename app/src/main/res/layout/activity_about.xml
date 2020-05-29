@@ -17,7 +17,6 @@
         android:id="@+id/textAbout"
         style="@style/TextNormal"
         android:layout_weight="6"
-
         android:text="@string/textAbout" />
 
     <Button
