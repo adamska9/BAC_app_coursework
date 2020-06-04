@@ -151,6 +151,7 @@ public class MainAdd extends AppCompatActivity implements Dialog.DialogListener,
     private void removeItem(int position) {
         drinks.remove(position);
         adapter.notifyItemRemoved(position);
+        saveData();
     }
 
     //Buttons
@@ -173,6 +174,7 @@ public class MainAdd extends AppCompatActivity implements Dialog.DialogListener,
                 BAC = calculateBAC();
                 bloodAlcoholContent.setText(String.format("%.3f%%", BAC));
                 hoursText.setText(String.format("Hours left until sober: %.2f", hours));
+                saveData();
             }
         });
 
